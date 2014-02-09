@@ -24,21 +24,23 @@ Copyright (C) 2009 Bernie Thompson <bernie@plugable.com>
 Building
 ========
 
-This driver will only work for kernels >= 3.0 (most probably only for kernels >= 3.5). Make sure to also read the [original README.txt](https://github.com/HorstBaerbel/dd_usbfb-1.1/blob/master/README.txt). Please note that most of these steps need super-user rights aka su or sudo...
+This driver will only work for kernels >= 3.0 (most probably only for kernels >= 3.5). You will need kernel headers for your current kernel and some build tools. You might need to install ```sudo apt-get install build-essential``` and ```sudo apt-get install dkms```.  
+Make sure to also read the [original README.txt](https://github.com/HorstBaerbel/dd_usbfb-1.1/blob/master/README.txt). Please note that most of these steps need super-user rights aka su or sudo...
 
- * Copy to /usr/src/dd_usbfb-1.1
- * Enter that directory
- * ```make```
- * ```make install```
+ * ```cd /usr/src```
+ * ```sudo git clone http://github.com/HorstBaerbel/dd_usbfb-1.1```
+ * ```cd dd_usbfb-1.1```
+ * ```sudo make```
+ * ```sudo make install```
 
-Now a kernel module ```dd_usbfb``` should be available. Plug in your USB screen - It should show a pink screen if the driver loaded succesfully. Now you can use the new framebuffer device e.g. ```/dev/fb2``` to display data from the console, eg. using fbi: ```fbi -d /dev/fb2 -a -noverbose <FILE>```.
+Now a kernel module ```dd_usbfb``` should be available. Plug in your USB screen - It should show a nice pink screen if the driver loaded successfully. Now you can use the new framebuffer device e.g. ```/dev/fb2``` to display data from the console, eg. using fbi: ```fbi -d /dev/fb2 -a -noverbose <FILE>```.
 
 Known issues (from original README.txt)
 ========
 
 * PLEASE NOTE: The touch module is currently NOT being compiled! Adjust the Makefile if you need it.
 * The touch driver can not operate correctly without calibration data stored in the ArtistaUSB device (calibtool is now supplied for the calibration)
-* ```CONFIG\_FB\_DEFERRED\_IO=y``` is needed in the kernel configuration. This can not be explicitly set, enabling ```CONFIG\_HID\_PICOLCD=m``` is a workaround. The resulting module does not have to be installed, but the kernel has to be re-built with the configuration resulting in some bits being added to fb_info data structure.
+* ```CONFIG_FB_DEFERRED_IO=y``` is needed in the kernel configuration. This can not be explicitly set, enabling ```CONFIG_HID_PICOLCD=m``` is a workaround. The resulting module does not have to be installed, but the kernel has to be re-built with the configuration resulting in some bits being added to fb_info data structure.
 * artistausb_ops_blank always reports device /dev/fb0 regardless of the actual device being claimed.
 * Finding device names and sysfs files (esp. raw usb touch device) is not straight forward
 
