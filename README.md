@@ -1,13 +1,13 @@
 ArtistaUSB framebuffer driver for Data Display Group / Apollo Display Technologies board and USB monitors
 ========
 
-This is a driver to use Data Display Group / Apollo Display Technologies [ArtistaUSB](www.datadisplay-group.de/tft-controller/tft-controller-usb-lan/artistausb/) devices under Linux. ArtistaUSB framebuffer driver for Distec USB monitors. It is a "fork" of the [original GPLv2 driver v1.0.0.35007](http://www.datadisplay-group.de/service/downloads/artista-downloads/).  
+This is a driver to use Data Display Group / Apollo Display Technologies [ArtistaUSB](www.datadisplay-group.de/tft-controller/tft-controller-usb-lan/artistausb/) devices under Linux. It is a "fork" of the [original GPLv2 driver v1.0.0.35007](http://www.datadisplay-group.de/service/downloads/artista-downloads/).  
 I adjusted it as a proper kernel module for current kernels >= 3.7. The orginal driver crashed the kernel when displaying pictures on the console, thus I tried to make it work using the udlfb 0.4 kernel module as a reference. I finally got it to run and did some code cleanup, not much more... 
 
 License
 ========
 
-[GPLv2](http://opensource.org/licenses/GPL-2.0) as original driver, see [LICENSE.md](LICENSE.md)
+[GPLv2](http://opensource.org/licenses/GPL-2.0) as original driver, see [LICENSE.md](https://github.com/HorstBaerbel/dd_usbfb-1.1/blob/master/LICENSE.md)
 
 Based on original version 1.0.0.35077:  
 Copyright (c) 2012 Distec GmbH (wegner@distec.de)
@@ -24,7 +24,7 @@ Copyright (C) 2009 Bernie Thompson <bernie@plugable.com>
 Building
 ========
 
-This driver will only work for kernels >= 3.0 (most probably only for kernels >= 3.5). Make sure to also read the original [README.txt](README.txt). Please note that most of these steps need super-user rights aka su or sudo...
+This driver will only work for kernels >= 3.0 (most probably only for kernels >= 3.5). Make sure to also read the [original README.txt](https://github.com/HorstBaerbel/dd_usbfb-1.1/blob/master/README.txt). Please note that most of these steps need super-user rights aka su or sudo...
 
  * Copy to /usr/src/dd_usbfb-1.1
  * Enter that directory
