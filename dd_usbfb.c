@@ -233,7 +233,7 @@ MODULE_DEVICE_TABLE(usb, id_table);
 
 /* module options --------------------------------------------------------- */
 
-static bool console = 1;   /* Optionally allow fbcon to consume first framebuffer */
+static bool console = 0;   /* Optionally allow fbcon to consume first framebuffer */
 static bool fb_defio = 1;  /* Optionally enable fb_defio mmap support */
 
 /* set up framebuffer operations ------------------------------------------ */
